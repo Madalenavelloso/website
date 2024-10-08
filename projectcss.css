@@ -1,0 +1,354 @@
+
+
+  /* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none; /* Hide the default cursor */
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-color:rgb(221, 136, 51);
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Other existing styles remain unchanged */
+
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+}
+
+.carousel-container {
+        display: flex;
+        margin-right: 0%;
+        width: 1600px;
+        margin-bottom: 0;
+        height: 577px;
+}
+
+
+.project-tab {
+    display: flex;
+    margin-right: 0%;
+    width: 1600px;
+    margin-bottom: 0;
+    height: 577px;
+}
+
+/* Styling the Header */
+header {
+    text-align: center;
+    margin-left: 0px;
+    width: 100px;
+}
+
+header a {
+    text-decoration: none;
+}
+
+h1{
+    font-family: "salo-variable",sans-serif;
+    font-variation-settings: 'opsz' 128;
+    color:black;
+    font-size: 70px;
+    font-weight: 1000;
+    text-align: center;
+    margin-left: 20px;
+}
+
+h1 a {
+    text-decoration: none;
+}
+
+h1:hover {
+  color: rgba(255, 255, 255, 0.415);
+  transition: transform 0.1s ease-in-out;
+}
+
+.page-container {
+    display: flex;              /* Use flexbox to align items */
+    height: 100vh;             /* Full viewport height */
+
+}
+
+.vertical-heading {
+    writing-mode: vertical-rl; /* Rotate text vertically */
+    transform: rotate(180deg);  /* Flip text upside down */
+    margin: 20px;               /* Margin around the header */
+    white-space: nowrap;
+
+}
+
+#canvas-container {
+    position: relative;
+    top:0%;
+    right: 0%;
+    width: 1600px;
+    height: 577px;
+    overflow: hidden; /* Ensure cards don't go outside the container */
+    border: 2px solid #000; /* Optional: Add a border to visualize the boundary */
+}
+
+
+
+/* Card Container */
+.card-container {
+    position: relative;
+    top:0%;
+    right: 0%;
+    width: 1600px;
+    height: 577px;
+    overflow: hidden; /* Ensure cards don't go outside the container */
+    border: 2px solid #000; /* Optional: Add a border to visualize the boundary */
+}
+
+/* Individual Cards */
+.card {
+    background-color: #ffffff51;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-image 0.3s;
+    cursor: pointer;
+    position: relative;
+    padding: 40px;
+    text-align: center;
+    margin: 10px;
+    flex: 0 0 auto;                   /* Ensure the cards don't shrink or grow */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;  
+    width: 300px;              /* Card width */
+    height: 200px;  
+}
+
+/* Hover Effect */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    color: #77777738;
+    transition: transform 0.2 ease-in;
+}
+
+
+/* Card Content Styling */
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-content h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-optical-sizing: auto;
+    font-style:normal;
+    color: #000000;
+}
+
+.card-content p {
+    font-size: 16px;
+    color: #000000;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style:normal;
+}
+
+
+/* Card Links */
+.card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+  
+  
+  /* Circle cursor styling */
+  .circle-cursor {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%; /* This makes it a circle */
+      background-color: rgba(255, 255, 255, 0.673); /* Customize the color */
+      pointer-events: none; /* Allow interaction through the circle cursor */
+      transition: transform 0.1s ease; /* Smooth movement */
+      z-index:auto
+  }
+  
+  /* Optional: Hover effect to scale the circle when hovering over elements */
+  h1:hover + .circle-cursor {
+      transform: scale(1.5); /* Makes the cursor larger on hover */
+  }
+  /* images auto scroll */
+
+.scroll-wrapper {
+    /* How long one slide is visible on screen (from entering screen to leaving it) */
+    --scrolling-gallery-item-duration: 12s;
+    /* How many items we want to see on screen at once */
+    --scrolling-gallery-items-visible: 8;
+    /* How many items are to scroll */
+    --scrolling-gallery-items-total: 10;
+}
+
+.scroller {
+    animation-duration: calc(var(--scrolling-gallery-item-duration, 1s) / var(--scrolling-gallery-items-visible) * var(--scrolling-gallery-items-total));
+    animation-timing-function: linear;
+    animation-name: scrolling-gallery;
+    animation-iteration-count: infinite;
+    display: flex;
+    white-space: nowrap;
+}
+
+.scroller-container {
+    /* Without this, scroll will jump on desktop if any vertical scrollbar is shown */
+    width: 100vw;
+}
+
+.scroller-item {
+    flex: 1 0 calc(100% / var(--scrolling-gallery-items-visible));
+    /* Without this, block elements will take width from their contents and thus making wrong calculations,
+       so this just force elements to take only exact part of the container (screen) and equal for all */
+    width: 0px;
+    /* If you want to have it continuous without any spaces, remove two lines below */
+    box-sizing: border-box;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+
+@keyframes scrolling-gallery {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+.scroller:hover,
+.scroller:focus {
+    animation-play-state: paused;
+}
+  
+
+/* General Styling for Project Section */
+.project-section {
+    background-color: #fff36d;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Project Section Layout */
+.project-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two-column layout */
+    gap: 40px; /* Space between the text and carousel */
+    align-items: center;
+    max-width: 1200px; /* Maximum width of the content */
+    margin: 0 auto; /* Center the layout */
+    height: 100vh; /* Full viewport height */
+    box-sizing: border-box;
+    border-bottom: #000000;
+}
+
+/* Left Side: Text Content */
+.project-content {
+    font-family: "Montserrat", sans-serif;
+    color: #ffffff;
+    align-self: center; /* Vertically center the text */
+}
+
+.project-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.project-description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Right Side: Image Carousel */
+.project-carousel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Carousel fits container width */
+    max-height: 450px; /* Max height for carousel */
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%; /* Full height for images */
+}
+
+.carousel-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Maintain the image aspect ratio */
+    border-radius: 10px;
+}
+
+/* Arrows for Navigation */
+.arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-carousel:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    color: #77777738;
+}
+
+.project-carousel:hover .arrows {
+    opacity: 1;
+}
+
+.arrow-left,
+.arrow-right {
+    font-size: 40px;
+    color: #424242;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+html {
+  scroll-behavior: smooth;
+}

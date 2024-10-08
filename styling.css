@@ -1,0 +1,350 @@
+body {
+  margin: 0;
+  text-transform: uppercase;
+  font-family: 'impact';
+  font-weight: 400px;
+  font-style:normal;
+  padding: 0;
+  height: 100vh;
+  background-color: rgb(221, 136, 51);
+  background-size: cover; /* This makes the image cover the entire page */
+  background-position: center horizontal; /* Centers the image */
+  background-repeat: no-repeat; /* Ensures the image doesn't repeat */
+  cursor: none; /* Hide the default cursor */
+  
+
+}
+
+h2 {
+	font-family: 'impact';
+    font-size: 30px;
+    color: white;  
+    text-decoration: none;
+}
+
+p {
+    margin: 5px;
+}
+
+
+
+.descript{
+	position: absolute;
+	bottom: 5px;
+	left: 30px;
+	text-transform: uppercase;
+	font-family: 'impact';
+	font-size: 20px;
+    color: white;
+}
+
+.creative{
+	color: white;
+	font-family: 'impact';
+	font-size: 32px;
+    margin: 10px;
+    display: inline;
+}
+
+
+.about{
+	position: absolute;
+	bottom: 5px;
+	right: 20px;
+	text-transform: uppercase;
+	font-family: 'impact';
+	font-size: 32px;
+    color: white;
+}
+
+h1{
+    text-transform: uppercase;
+	font-family: 'impact';
+    font-weight: 400;
+    font-size: 90px;
+    font-weight: 900;
+    text-align: center;
+    transition: color 0.5s ease-in-out;
+    color:rgb(214, 219, 221);
+}
+
+
+h1:hover {
+    color:#25232396;
+
+}
+
+h1::before {
+    position:absolute;
+    text-transform: uppercase;
+	font-family: 'impact';
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* To perfectly center the text */
+    font-size: 200px; /* Smaller font size */
+    color: rgb(255, 255, 255); /* Change the color for contrast */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease; /* Fade in the extra text */
+    z-index: -1; /* Behind the h1 initially */
+  }
+
+
+  /* Show the pseudo-element on hover */
+  h1:hover::before {
+    opacity: 1; /* Fade in */
+    z-index: 2; /* Bring the text above the h1 */
+    width: 400px;
+    height: 400px;
+    max-width: fit-content;
+    position:fixed;
+  }
+/* Set the trigger zone for the sequence words */
+.sequence-words {
+    position: absolute; /* Change to absolute to overlap the centered word */
+    left: 50%; /* Center it horizontally */
+    top: 140px; /* Adjust this value to position below the main word */
+    transform: translateX(-50%); /* Center align with main word */
+    opacity: 0; /* Initially hidden */
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.3s ease; /* Smooth appearance */
+    pointer-events: none; /* Prevent interaction before hover */
+}
+
+/* Adjust the spacing between sequence words */
+.sequence-word {
+    text-transform: uppercase;
+	font-family: 'impact';
+    font-weight: lighter;
+    margin: 5px 0; /* Adjust margin for spacing between words */
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Move down slightly initially */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    text-decoration: none; /* Remove underline */
+    color: #f6f6f6; /* Change color as needed */
+}
+
+/* Show the entire sequence words when hovering over the main word or the sequence words */
+.centered-word:hover + .sequence-words,
+.sequence-words:hover {
+    opacity: 1; /* Show the entire container */
+    pointer-events: auto; /* Allow interaction */
+    
+}
+
+/* Sequential reveal for each word with a delay */
+.centered-word:hover + .sequence-words .sequence-word {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Change color on hover */
+.sequence-word:hover {
+    color: rgb(0, 0, 0); /* Change to desired hover color */
+    text-decoration: none; /* Optional underline on hover */
+}
+
+/* Make the sequence words visible when hovering over the main word */
+.sequence-words:hover .sequence-word {
+    opacity: 1; /* Show all sequence words */
+    transform: translateY(0); /* Reset position for visibility */
+}
+
+/* Keep the sequence words visible */
+.centered-word:hover + .sequence-words,
+.sequence-words:hover {
+    opacity: 1; /* Keep visible */
+    pointer-events: auto; /* Allow interaction */
+}
+
+  
+#navbar {
+    margin-top: 0px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+    border: 2px solid black;
+}
+
+.navbar-links {
+    color:rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: lighter;
+    text-decoration: none;
+    margin: 10px;
+    display: inline;
+
+}
+
+.navbar-links a {
+    color:rgb(255, 255, 255);
+    font-size: 30px;
+    font-weight:lighter;
+    left: 30px;
+    
+}
+
+.navbar-links a:hover {
+    color:rgb(179, 137, 173);
+    font-size: 30px;
+    font-weight:lighter
+    
+}
+
+#navbar-title {
+    font-size: 30px;
+    font-weight: bold;
+    display: inline;
+    right: 30px;
+}
+
+
+/* Centered content */
+.content {
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+
+.content:hover {
+    color: rgba(240, 248, 255, 0.417) 0.3s ease-in-out;
+    position: center;
+    opacity:1;
+    max-width: 100%;               /* Responsive image */
+    max-height: 100%;
+}
+
+
+/* Circle cursor styling */
+.circle-cursor {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; /* This makes it a circle */
+    background-color: rgba(255, 255, 255, 0.673); /* Customize the color */
+    pointer-events: none; /* Allow interaction through the circle cursor */
+    transition: transform 0.1s ease; /* Smooth movement */
+    z-index:auto
+}
+
+/* Optional: Hover effect to scale the circle when hovering over elements */
+h1:hover .circle-cursor {
+    transform: scale(1.5); /* Makes the cursor larger on hover */
+}
+
+/* Optional: Hover effect to scale the circle when hovering over elements */
+h1:hover .circle-cursor {
+    transform: scale(1.5); /* Makes the cursor larger on hover */
+}
+
+.contact-title {
+    display: flex;
+    justify-content: right; /* Center the title vertically and horizontally */
+    padding: 10px;
+}
+
+
+#contact-section {
+    position: fixed;
+    right: -400px; /* Hidden off the screen */
+    top: 0;
+    width: 300px; /* Width of the side section */
+    height: 100vh; /* Full height */
+    background:rgb(0, 0, 0);
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); /* Shadow to the left */
+    box-sizing: border-box;
+    transition: right 0.3s ease; /* Animation for sliding effect */
+    padding: 20px;
+    z-index: 1000; /* Ensure it appears above other content */
+    display: flex;
+    flex-direction: column;
+    justify-content:right
+}
+
+#contact-section.active {
+    right: 0; /* Slide into view */
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap:8px
+}
+
+.contact-info {
+    padding: 10px ; /* Padding for contact info */
+    color: white;
+}
+
+#close-button {
+        padding: 10px 15px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.interactive-drawing {
+    position: absolute;
+    width: 400px; /* Adjust the size of the drawing */
+    height: auto;
+    transition: transform 0.5s ease-in-out; /* Smooth transition for movement */
+}
+
+
+#aboutMe {
+    margin-top: 100vh; /* Ensure it's below the first page */
+    padding: 20px;
+    background-color: #f0f0f0;
+    height: 100vh;
+}
+
+
+.about-me {
+    background-color: #f4f4f4; /* Light background color */
+    padding: 10px; /* Spacing around the content */
+    display: block;
+    justify-content: left;
+    left: 30px;
+    padding: 40px;
+}
+
+.about-me h2 {
+    width: 350px;
+    font-size: 2.5em; /* Size of the heading */
+    margin-bottom: 20px; /* Space below the heading */
+    color: #333; /* Darker color for contrast */
+}
+
+.about-me p {
+    width: 350px;
+    font-size: 1.2em; /* Font size for paragraphs */
+    line-height: 1.5; /* Spacing between lines */
+    color: #666; /* A softer color for text */
+
+
+}
+
+/* Optional: Add some responsive design */
+@media (max-width: 600px) {
+    .about-me h2 {
+        font-size: 2em; /* Smaller heading on small screens */
+    }
+
+    .about-me p {
+        font-size: 1em; /* Smaller paragraph text */
+    }
+}

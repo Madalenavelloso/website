@@ -1,0 +1,30 @@
+.about-me {
+    background-color: #f4f4f4; /* Light background color */
+    padding: 40px; /* Spacing around the content */
+    text-align: center; /* Centered text */
+}
+
+.about-me h2 {
+    font-size: 2.5em; /* Size of the heading */
+    margin-bottom: 20px; /* Space below the heading */
+    color: #333; /* Darker color for contrast */
+}
+
+.about-me p {
+    font-size: 1.2em; /* Font size for paragraphs */
+    line-height: 1.5; /* Spacing between lines */
+    color: #666; /* A softer color for text */
+    max-width: 800px; /* Maximum width for readability */
+    margin: 0 auto; /* Centering the paragraph */
+}
+
+/* Optional: Add some responsive design */
+@media (max-width: 600px) {
+    .about-me h2 {
+        font-size: 2em; /* Smaller heading on small screens */
+    }
+
+    .about-me p {
+        font-size: 1em; /* Smaller paragraph text */
+    }
+}
